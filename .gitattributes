@@ -1,2 +1,50 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+
+def is_your_email_valid(email):
+    p, q, r = 0, 0, 0
+    if len(email) >= 6:
+        if email[0].isalpha():
+            if "@" in email and email.count("@") == 1:
+                if (email[-4] == ".") ^ (email[-3] == "."):
+                    if "gmail" in email.split("@")[1]:
+
+                        for i in email:
+                            if i ==i.isspace():
+                                p=1
+                            elif i.isalpha():
+                                if i==i.upper():
+                                    q=1
+                            elif i.isdigit():
+                                continue
+                            elif i=="_" or i=="." or i=="@":
+                                continue
+                            else:
+                                r=1
+                        
+                        if p == 1 or q == 1 or r == 1:
+                            return False, "Oops! Your email has some issues. Did your cat walk on the keyboard?"
+                        else:
+                            return True, "Your email is valid and it's a Gmail address! 🎉 🎉"
+                    else:
+                        return False, "Your email must be a Gmail address."
+                else:
+                    return False, "Hmm, your email seems to be missing a dot in the right place. Did you forget it?"
+            else:
+                return False, "Your email should have exactly one '@' symbol. Did you add too many or forget it?"
+        else:
+            return False, "The first character of your email should be a letter. No numbers or symbols allowed!"
+    else:
+        return False, "Your email is too short. It should be at least 6 characters long. Try again babe!"
+
+def main():
+    email = input("Enter your email 🫰🏻: ")
+    is_valid, message = is_your_email_valid(email)
+    print(message)
+    if not is_valid:
+        print("Let's give it another shot! Enter a valid email address this time 😤😤")
+
+if __name__ == "__main__":
+    main()
+
