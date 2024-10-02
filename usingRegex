@@ -1,0 +1,8 @@
+import re
+
+pattern = r'^[a-z]+[\._]?[a-z0-9]+[@]gmail[.]com$'
+email = input('Enter your Email: ')
+if re.search(pattern, email):
+    print("Boss!, your email is valid")
+else:
+    print("Oops!, your email is not valid Please correct it.")
